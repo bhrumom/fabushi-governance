@@ -1,4 +1,38 @@
-# Agent Instructions
+# Fabushi Governance — Agent Instructions
+
+These instructions apply repository-wide to AI-assisted development in `bhrumom/fabushi-governance`.
+
+## CRITICAL: Repository ownership
+
+This repository is the canonical source for **Fabushi portfolio, migration, repository-governance and cross-repository control-plane records**.
+
+- Product implementation belongs in its canonical product repository, not here.
+- `bhrumom/fabushi` is the legacy migration/source-history repository; this governance repository owns the separated governance control-plane copy.
+- Before editing, verify whether the task is governance/migration control-plane work or a product task that must be routed elsewhere.
+
+## CRITICAL: Spec-first development — No Spec, No Code
+
+Before changing governance automation, workflows, schemas, policies, migration tooling, repository controls, or other behavior-affecting files:
+
+1. Read this root `AGENTS.md`.
+2. Read the applicable durable Spec/project/source-of-truth and task records.
+3. Check `docs/specs/`.
+4. Reconcile the Spec with the latest explicit user requirement and live GitHub facts.
+5. If no usable Spec exists, or it is stale/unclear/contradictory, create or repair it first with `docs/specs/SPEC_TEMPLATE.md`.
+
+Read-only investigation needed to understand the current state or write the Spec is allowed before the Spec is complete. Implementation is not.
+
+Mandatory lifecycle: **Discover → Spec → Architecture/Plan → Implement → Verify → Spec Compliance Review → Integrate/Deliver**.
+
+Before completion, map each requirement/acceptance criterion to `passed`, `blocked`, or `not-applicable` with evidence/reason.
+
+Canonical Spec-first policy: `docs/specs/spec-first-ai-development.md`.
+
+---
+
+## Migrated legacy governance instructions
+
+The following migrated instructions remain applicable only where they do not conflict with the repository-ownership and Spec-first rules above.
 
 This file is the repository-wide entrypoint. The complete pre-2026-09-16 repository instructions are preserved verbatim in `AGENTS.legacy.md` and remain mandatory except where this file explicitly supersedes a conflicting release/test rule. Project-first governance, Project IDs, project records, protected-main/PR governance, open-source-first research, local-disk safety, security, evidence integrity, and all unrelated product-specific instructions continue to apply.
 
