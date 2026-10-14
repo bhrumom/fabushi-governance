@@ -121,3 +121,25 @@ existing registry/folder/baseline checks. No new project ID is allocated. The
 legacy validator is the reused implementation; no new framework is introduced.
 
 R7 acceptance is blocked until exact-head Project portfolio governance passes.
+
+## Foundation evidence / requirement review (2026-10-14)
+
+| Criterion | Status | Evidence / remaining obligation |
+| --- | --- | --- |
+| FCM27-R1 | blocked | Six-layer policy adopted; canonical L3/L4/L5/L6 consumer rollout remains outstanding |
+| FCM27-R2 | passed | 21 adversarial evidence tests, exact-head Actions 38593913090; missing/skipped/cancelled/zero/stale/duplicate/incomplete cases reject |
+| FCM27-R3 | blocked | Backend PR 70 factory contracts pass; hosted fixture infrastructure/TTL and real platform consumers remain; production provision retired on this branch |
+| FCM27-R4 | blocked | Exact-source manifest validator foundation exists; real RC/SBOM/attestation/signatures remain |
+| FCM27-R5 | blocked | No real packaged multi-device official-MCP report yet |
+| FCM27-R6 | passed | Existing canonical product suites preserved; governance CI explicitly reports formal product acceptance NOT_VERIFIED |
+| FCM27-R7 | passed | Restored original 299-line validator unchanged; exact-head portfolio Actions 38593912966 passes |
+| AC-1 | blocked | Validator/policy foundation verified; full required consumer gate rollout remains |
+| AC-2 | blocked | Hosted isolated lifecycle and consumer migration incomplete |
+| AC-3 | blocked | Cross-platform release acceptance remains |
+| AC-4 | blocked | Integration and canonical readback pending |
+
+Source revision: a88811064fe5c63c4a94cdff54bcc01a1a17fe41.
+PR: https://github.com/bhrumom/fabushi-governance/pull/3.
+Actions: https://github.com/bhrumom/fabushi-governance/actions/runs/38593913090
+and https://github.com/bhrumom/fabushi-governance/actions/runs/38593912966.
+Governance contracts are not product test evidence. No program closure declared.
