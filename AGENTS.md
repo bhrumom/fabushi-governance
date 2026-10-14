@@ -36,20 +36,27 @@ The following migrated instructions remain applicable only where they do not con
 
 This file is the repository-wide entrypoint. The complete pre-2026-09-16 repository instructions are preserved verbatim in `AGENTS.legacy.md` and remain mandatory except where this file explicitly supersedes a conflicting release/test rule. Project-first governance, Project IDs, project records, protected-main/PR governance, open-source-first research, local-disk safety, security, evidence integrity, and all unrelated product-specific instructions continue to apply.
 
-For CI/CD and release work, the latest persisted requirement in `projects/fabushi-cicd-merge-governance/SOURCE_OF_TRUTH.md` and its latest dated source takes precedence over conflicting legacy E2E/release text. As of 2026-09-18, `projects/fabushi-cicd-merge-governance/source/2026-09-18-user-directed-test-and-release-authority.md` is the controlling test/release sequencing requirement.
+For CI/CD and release work, the latest persisted requirement in `projects/fabushi-cicd-merge-governance/SOURCE_OF_TRUTH.md` and its latest dated source takes precedence over conflicting legacy E2E/release text. As of 2026-10-14, FCM-027 is the controlling testing migration requirement; older sources remain historical where conflicting.
 
-## CRITICAL: User-directed release and testing policy
+## CRITICAL: FCM-027 layered testing authority (2026-10-14)
 
-1. **Behavioral/product testing is not a default release gate.** Do not require Fabushi official MCP, E2E, smoke, regression, simulator/emulator, packaged-app journeys, or any equivalent behavioral test merely because a build is a test, beta, prerelease, formal, or stable release.
-2. **Run behavioral tests only when the user explicitly asks to test.** Do not infer a test requirement from historical project records, an older release policy, prior acceptance evidence, or agent preference. If the user requests a specific test scope, run that requested scope unless the user explicitly expands it.
-3. **Fabushi official MCP is optional unless explicitly requested by the user.** It may be used as a test/control surface when the user asks for MCP-based testing, but missing MCP connectivity or missing App-owned devices is not a release blocker when MCP testing was not requested.
-4. **Explicit user publication authorization controls the behavioral gate.** If the user says `发布`, `可以发布`, or gives equivalent authorization for the current candidate, proceed with publication without inventing an additional MCP/E2E/behavioral-test prerequisite.
-5. **Latest explicit user instruction wins on test/release sequencing.** A newer user instruction supersedes conflicting older repository text that made testing mandatory. Do not continue enforcing a historical MCP/E2E gate after the user has waived it.
-6. **Automatic E2E and other long-running behavioral test workflows remain disabled by default.** Do not trigger them automatically from PR, merge-group, push, `main`, `workflow_run`, schedule, or release events unless a later explicit user instruction enables that exact test behavior.
-7. **Do not silently substitute another behavioral test.** If MCP testing was not requested, do not replace it with autonomous E2E, smoke, regression, or another product-behavior suite.
-8. **Release-construction and integrity checks are distinct from behavioral testing.** Source identity, version monotonicity where required by a channel, build/sign/package steps, notarization, provenance, artifact integrity, protected-branch rules, credentials/permissions, security controls, and store/platform acceptance requirements remain applicable because they construct or authorize the release rather than test product behavior.
-9. **Evidence must be truthful.** When publishing without behavioral testing, record that no behavioral test was requested/run rather than implying a pass. When testing is explicitly requested, retain the relevant exact-source/run/device/test evidence appropriate to that requested scope.
-10. **No local builds/tests.** The ordinary-device disk-safety rule remains in force. Build/package on GitHub Actions or another explicitly designated disposable build runner. If the user explicitly requests behavioral testing, execute it only on an appropriate allowed test surface; do not create heavy build/test caches on persistent ordinary devices.
+The user explicitly authorized the attached next-generation test system and
+isolated account migration. The governing source is
+`projects/fabushi-cicd-merge-governance/source/2026-10-14-layered-test-authority.md`.
+It supersedes conflicting FCM-023/024/026 no-test rules for this program.
+
+- Run L1/L2 fast tests automatically on affected PR/merge candidates; L3 on merge
+  or demand, L4 by impact, L5 real packaged-app/official-MCP formal acceptance,
+  and L6 nightly/security-change verification according to the FCM-027 rollout.
+- All executable verification for this program runs only in GitHub Actions.
+- Ordinary CI uses isolated run/attempt/scenario accounts through canonical Core
+  authentication, never production D1 writes or privileged TestAccount shortcuts.
+- Missing/cancelled/skipped/zero-test/stale-source required evidence is blocked.
+  Model declarations or ci_session_finish are not business acceptance evidence.
+- Preserve protected integration, integrity, signing and truthful evidence. A fast
+  test artifact must disclose any unfinished formal acceptance.
+- Product implementation stays in each canonical split repository. Migration
+  safety cleanup of legacy workflows remains valid here only as archival work.
 
 ## CRITICAL: Ordinary devices are control/edit surfaces, never build surfaces
 
