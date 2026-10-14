@@ -110,3 +110,14 @@ Core account.rs. No source-memory assumptions used as acceptance evidence.
 | R3 / AC-2 | blocked | Isolated service/resources/mailbox/janitor not configured; retirement pending |
 | R4/R5 / AC-3 | blocked | Real apps/devices/package/RC/signing/SBOM/attestation not yet verified |
 | AC-4 | blocked | Protected PR integration pending |
+
+## Migration prerequisite — missing portfolio validator
+
+FCM27-R7: The migrated governance workflow invokes
+scripts/check-project-portfolio.py, but main lacks that file. Restore the exact
+existing validator from legacy source 7f2935500cec3a199caf7823557ce5d106e051f4;
+do not bypass the workflow or relax immutable project IDs. Actions must run its
+existing registry/folder/baseline checks. No new project ID is allocated. The
+legacy validator is the reused implementation; no new framework is introduced.
+
+R7 acceptance is blocked until exact-head Project portfolio governance passes.
