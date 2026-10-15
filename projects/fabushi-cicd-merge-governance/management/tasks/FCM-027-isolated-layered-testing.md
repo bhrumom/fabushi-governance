@@ -3,7 +3,7 @@
 Project: FAB-P0003 / FCM
 Status: active; no completion claim
 Owner: canonical fabushi-governance control plane; implementation in split repos
-Updated: 2026-10-14
+Updated: 2026-10-15
 
 ## 1. Context / 2. Goal
 User says “按这个方案去执行，特别是测试账号那里” and supplies the full
@@ -143,3 +143,53 @@ PR: https://github.com/bhrumom/fabushi-governance/pull/3.
 Actions: https://github.com/bhrumom/fabushi-governance/actions/runs/38593913090
 and https://github.com/bhrumom/fabushi-governance/actions/runs/38593912966.
 Governance contracts are not product test evidence. No program closure declared.
+
+## Hosted auth slice evidence (2026-10-15)
+
+This record supersedes the earlier claim that isolated cloud resources are not
+configured. Backend runtime f6dbe6417b6252fdbbfb01bbd4b093ab2b7ae592 and Core
+f781e6c85375ba0945aa4fd4c19ead89e396dfdb are deployed to two dedicated test
+Workers with independent ACCOUNT_DB/PLATFORM_DB and signing/bridge keys. The
+ci-isolated GitHub environment permits main only; the user authorized the dedicated
+Cloudflare deployment token, expiring 2026-10-22. No production bindings are used.
+
+- Backend contracts/workerd probe: 38666607783, 65/65, exit 0.
+- Canonical wasm/emulated-D1 compatibility: 38666607691, 15 assertions, exit 0.
+- Actual cloud delivery: 38666610725, 16 assertions, exit 0. It proves normal
+  A/B/C code registration/password login, wrong-code refusal, A dual sessions,
+  independent users, cross-account password rejection, refresh/revocation,
+  explicit cleanup, subsequent re-registration, real 15-minute abandoned-client
+  TTL and independent actual D1 auth-table remaining=0.
+- Literal cancellation: 38668206894 actually cancelled; observer 38668322225
+  attempt 2 PASS, exit 0. Independent owned-row counts are 36 before expiry and
+  0 after expiry. The observer
+  never calls cleanup/sweep. Earlier observer attempt failed closed before the
+  cancellation conclusion settled; it is not passing evidence.
+
+Backend hosted-ci-account-factory.md contains the HAF/HAC requirement review,
+actual deployment IDs, compiled wasm digest and operating procedure. Documentation
+commits do not claim a new deployment source. The source/run bindings above are
+immutable; later executable changes require new verification.
+
+| Criterion | Status | Evidence / remaining obligation |
+| --- | --- | --- |
+| FCM27-R1 | blocked | Foundation and auth L1/L2/L3 active in Actions; full platform L3/L4/L5/L6 adoption remains |
+| FCM27-R2 | passed | Governance 21 negative evidence contracts recorded above; Backend independent runtime/cloud validators reject wrong source/assertions/residuals |
+| FCM27-R3 | blocked | Hosted auth and abandoned-client TTL passed; literal cancellation passed (36 to 0); actual device/MCP fixture consumers and data cleanup remain |
+| FCM27-R4 | blocked | Cross-platform RC, actual packages, signing/SBOM/attestation not verified by auth deployment |
+| FCM27-R5 | blocked | Real packaged device discovery/consent/control/revocation/cleanup requires independent official-MCP acceptance |
+| FCM27-R6 | passed | Existing canonical suites preserved; auth-only evidence explicitly excludes formal acceptance |
+| FCM27-R7 | passed | Earlier restored portfolio validator/Actions evidence unchanged |
+| AC-1 | blocked | Foundation evidence remains valid; complete consumer gate rollout outstanding |
+| AC-2 | blocked | Auth cloud gate passed; literal cancellation passed; full fixture consumer migration remains |
+| AC-3 | blocked | Cross-platform release/rollback acceptance remains |
+| AC-4 | blocked | Earlier foundation PRs merged/read back; this evidence update integration pending |
+
+SMTP is NOT_VERIFIED: isolated @ci.invalid receiver carries the actual canonical
+code, without bypassing normal validation/password/session algorithms. Physical
+Mac/Windows/iOS/Android applications and MCP/device-created data are NOT_VERIFIED
+by this auth-only slice. Full P0..P4 is not declared complete.
+
+https://github.com/bhrumom/fabushi-backend/actions/runs/38666610725
+https://github.com/bhrumom/fabushi-backend/actions/runs/38668206894
+https://github.com/bhrumom/fabushi-backend/actions/runs/38668322225
