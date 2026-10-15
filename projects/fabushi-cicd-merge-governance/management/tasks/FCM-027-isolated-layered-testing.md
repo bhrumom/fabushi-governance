@@ -183,7 +183,7 @@ immutable; later executable changes require new verification.
 | AC-1 | blocked | Foundation evidence remains valid; complete consumer gate rollout outstanding |
 | AC-2 | blocked | Auth cloud gate passed; literal cancellation passed; full fixture consumer migration remains |
 | AC-3 | blocked | Cross-platform release/rollback acceptance remains |
-| AC-4 | blocked | Earlier foundation PRs merged/read back; this evidence update integration pending |
+| AC-4 | blocked | Foundation and hosted-auth evidence PRs merged/read back (Backend PR 82; Governance PR 4); full cross-repository consumer/release integration remains |
 
 SMTP is NOT_VERIFIED: isolated @ci.invalid receiver carries the actual canonical
 code, without bypassing normal validation/password/session algorithms. Physical
